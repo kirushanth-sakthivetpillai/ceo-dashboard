@@ -1,0 +1,35 @@
+#server {
+#        listen 80;
+#        server_name     dev.ksakthivel.com www.dev.ksakthivel.com;
+#        rewrite        ^ https://$server_name$request_uri? permanent;
+#}
+
+server {
+        listen          80; # 443 ssl;
+        server_name     _;
+        access_log      /var/log/nginx/localhost_access.log;
+        error_log       /var/log/nginx/localhost_error.log;
+
+        expires off;
+
+        #include /etc/nginx/include.d/all-ssl;
+
+        #ssl_certificate /vagrant/src/playerproject/ssl/local/cert.pem;
+        #ssl_certificate_key /vagrant/src/playerproject/ssl/local/key.pem;
+
+        # https://docs.djangoproject.com/en/dev/howto/static-files/#serving-static-files-in-production
+        location /static/ { # STATIC_URL
+                alias /www/ksakthivel-com/ksakthivel/ksakthivel/static/; # STATIC_ROOT
+                expires 0;
+        }
+
+        location /media/ { # MEDIA_URL
+                alias /www/ksakthivel-com/ksakthivel/ksakthivel/media/; # MEDIA_ROOT
+                expires 0;
+        }
+
+        location / {
+                uwsgi_pass  unix:///tmp/ksakthivel.sock;
+                include     uwsgi_params;
+        }
+}

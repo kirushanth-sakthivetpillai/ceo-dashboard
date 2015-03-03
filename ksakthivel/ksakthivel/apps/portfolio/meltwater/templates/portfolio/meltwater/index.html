@@ -1,0 +1,156 @@
+{% extends "portfolio/meltwater/__base.html" %}
+{% load staticfiles i18n %}
+
+{% block content %}
+
+	<div id="header">
+		<div class="logo">meltwater<span>ceo</span></div>
+
+		<div class="menu">
+			<div class="circle"><img src="http://a4.mzstatic.com/us/r30/Purple6/v4/36/dd/bb/36ddbb59-752b-8a41-a00b-eb50ddcf81d9/mzl.ousgozvr.png" />
+			</div>
+			<div class="name">Tesla Motors</div>
+			<div class="clearfix"></div>
+		</div>
+	</div> <!-- #header -->
+
+	<div id="dashboard">
+
+		<div id="sidebar">
+			<div class="option">Overview</div>
+			<div class="option">Customer<br/>Satisfaction</div>
+			<div class="option">Employee<br/>Satisfaction</div>
+			<div class="option">Media<br/>Coverage</div>
+			<div class="option">Social<br/>Media</div>
+			<div class="option">Digital<br/>Footprint</div>
+			<div class="option">Industry<br/>Influencers</div>
+			<div class="option">Personal<br/>Brand</div>
+			<div class="option">Analyst<br/>Coverage</div>
+		</div> <!-- #sidebar -->	
+
+		<div id="dashboard_container">
+		
+			<div class="dashboard_card">
+
+				<div class="dashboard_card_header">
+					<span>Media Coverage</span>
+				</div>
+
+				<div class="dashboard_card_body">
+
+					<div class="row">
+
+						<div class="box-large box-title col-lg-9 col-lg-push-3">
+							<div class="graph_meta_bar nohl">
+								<div id="graph_reach_scrub" class="nohl">
+									<div id="graph_reach_mini" class="graph_meta_mini nohl"></div>
+									<div id="graph_reach_mini_scrub" class="graph_meta_mini nohl"></div>
+									<div id="graph_reach_window" class="nohl">
+										<div class="handle left nohl ui-resizable-handle ui-resizable-w">|&nbsp;|&nbsp;|</div>
+										<div class="drag_handle"></div>
+										<div class="handle right nohl ui-resizable-handle ui-resizable-e">|&nbsp;|&nbsp;|</div>
+									</div>
+								</div>	
+								<div class="graph_meta_controls nohl">
+									<div class="graph_control rightarrow">
+										<div class="arrow">&raquo;</div>
+										<div class="caption">next mo.</div>
+									</div>
+									<div class="graph_control leftarrow">
+										<div class="arrow">&laquo;</div>
+										<div class="caption">prev mo.</div>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="module">
+								<div class="module_title">- Media Coverage (Reach) -</div>
+
+								<div id="graph_media_reach" class="graph"></div>
+							</div>	
+						</div>
+
+						<div class="col-lg-3 col-lg-pull-9">
+							<div class="row">
+								
+								<div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 box-small">
+									<div class="module">
+										<div id="graph_percent" class="graph"></div>
+										<div id="graph_percent_overlay" class="graph">
+											<div class="percent">26</div>
+											<div class="sign">%</div>
+											<div class="caption">up 1.0% this mo</div>
+										</div>
+									</div>
+									<div class="module_overlay">You controlled 26% of the media's coverage of this group this mo.</div>
+								</div>
+
+								<div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 box-small box-title">
+									<div class="module">
+										<div class="module_title">- Mentions -</div>
+										<div id="graph_mentions" class="graph"></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div> <!-- .row -->
+
+					<div class="row">
+
+						<div class="col-md-3 col-sm-6 box-small box-title">
+							<div class="module">
+								<div class="module_title">- Advertising Value -</div>
+								<div id="graph_advertising" class="graph"></div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 box-small box-title">
+							<div class="module">
+								<div class="module_title">- Sources -</div>
+								<div id="graph_sources" class="graph"></div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 box-small box-title">
+							<div class="module">
+								<div class="module_title">- Top Themes -</div>
+								<div id="graph_themes" class="graph"></div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 box-small box-title">
+							<div class="module">
+								<div class="module_title">- Sentiment -</div>
+								<div id="graph_sentiment" class="graph"></div>
+							</div>	
+						</div>
+
+					</div>  <!-- .row -->
+
+				</div>  <!-- .dashboard_card_body -->
+ 			</div>	<!-- .dashboard_card -->
+
+		</div> <!-- #dashboard_container -->
+
+	</div> <!-- #dashboard -->
+
+	<div id="tip_template">
+		<div class="graph_tip">
+			<div class="arrow"></div>
+			<div class="content">
+			</div>
+		</div>	
+	</div>
+	
+{% endblock %}
+
+{% block javascript %}
+	{{ block.super }}
+
+	<script src="{% static "portfolio/meltwater/js/graph_reach.js" %}" type="text/javascript"></script>
+	<script src="{% static "portfolio/meltwater/js/graph_percent.js" %}" type="text/javascript"></script>
+	<script src="{% static "portfolio/meltwater/js/graph_mentions.js" %}" type="text/javascript"></script>
+	<script src="{% static "portfolio/meltwater/js/graph_vstacked.js" %}" type="text/javascript"></script>
+	<script src="{% static "portfolio/meltwater/js/graph_vpolar.js" %}" type="text/javascript"></script>
+{% endblock %}   
+
+

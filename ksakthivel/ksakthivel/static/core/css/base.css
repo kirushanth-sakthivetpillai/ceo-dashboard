@@ -1,0 +1,22 @@
+
+/*  GENERAL */
+
+    /* BS OVERRIDE */
+
+    body { background:white; margin:0; padding:0; }
+    body, .btn, h1, h2, h3, h4, h5, h6 { font-weight:200; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; }
+    label { font-weight:200; }
+
+    code.inverse { background-color:#333; color:#5B86E0; }
+
+    .btn { cursor:pointer; }
+
+    .rounded {
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+    }
+
+    .table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table tbody>tr>td, .table tfoot>tr>td { padding:8px 15px; }
+
+/** PAGES **/
